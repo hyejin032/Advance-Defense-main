@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    // check commit
     [Header("# Game Control")]
     public static GameManager instance;
     public GameObject menu;
