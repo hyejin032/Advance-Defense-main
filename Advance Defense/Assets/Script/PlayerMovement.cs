@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float Playerspeed = 1f;
     public float PlayerHp = 5f;
     public float MaxPlayerHp = 5f;
+    public float Power = 1f;
     public float Cooldown = 0.7f;
     public float AttackRange = 0.1f;
 
@@ -102,7 +103,8 @@ public class PlayerMovement : MonoBehaviour
                 Enemy enemyScript = enemy.GetComponent<Enemy>();
                 if (enemyScript != null)
                 {
-                    enemyScript.TakeDamage(1);
+                    int APower = Mathf.FloorToInt(Power);
+                    enemyScript.TakeDamage(APower);
                 }
                 else
                 {
@@ -118,6 +120,12 @@ public class PlayerMovement : MonoBehaviour
             Cooldown = 0f;
         }
     }
+    public void Heal(int amount)
+    {
+        PlayerHp += amount;
+        PlayerHp = Mathf.Min(PlayerHp, MaxPlayerHp);
+    }
+
     public void TakeDamage(int damage)
     {
         PlayerHp -= damage;

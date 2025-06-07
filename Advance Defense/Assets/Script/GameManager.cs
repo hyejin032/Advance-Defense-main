@@ -6,12 +6,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    // check commit
     [Header("# Game Control")]
     public static GameManager instance;
+    public GameObject player;
     public GameObject menu;
     public GameObject Expbar;
     public GameObject HPbar;
+    public GameObject Lv;
+    public GameObject LevelUp;
     public Text Win;
     public string thisScene;
     [Header("# Player Info")]
@@ -37,6 +39,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
         Expbar.SetActive(false);
         HPbar.SetActive(false);
+        Lv.SetActive(false);
+        LevelUp.SetActive(false);
     }
     void Update()
     {
@@ -56,6 +60,14 @@ public class GameManager : MonoBehaviour
         if (HPbar != null)
         {
             HPbar.SetActive(true);
+        }
+        if (Lv != null)
+        {
+            Lv.SetActive(true);
+        }
+        if (LevelUp != null)
+        {
+            LevelUp.SetActive(true);
         }
     }
 
